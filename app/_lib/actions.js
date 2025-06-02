@@ -102,8 +102,8 @@ export async function deleteBooking(bookingId){
 
 export async function updateBooking(formData){
 
-  const bookingId = formData.get("bookingId")
-  const numGuests = formData.get("numGuests");
+  const bookingId = Number(formData.get("bookingId"))
+  const numGuests = Number(formData.get("numGuests"));
   const observations = formData.get("observations").slice(0 , 1000)
 
   const session = await getServerSession(authOptions);
@@ -112,7 +112,7 @@ export async function updateBooking(formData){
   const guestBookings = await getBookings(session.user.guestId);
   const guestBookingsIds = guestBookings.map((booking) => booking.id);
   if (!guestBookingsIds.includes(bookingId))
-    throw new Error("You are not alowed to Edit this booking!");
+    throw new Error("You are not alowed to delete this booking!");
   
 
   const { data, error } = await supabase
