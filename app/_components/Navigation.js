@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import { signOut } from "next-auth/react";
 import NavLogout from "./NavLogout";
 
 export default async function Navigation() {
@@ -9,8 +8,8 @@ export default async function Navigation() {
 
   
   return (
-    <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+    <nav className="z-10 text-base sm:text-xl">
+      <ul className="flex flex-col sm:flex-row gap-6 sm:gap-16 items-start sm:items-center">
         <li>
           <Link
             href="/cabins"
@@ -31,10 +30,10 @@ export default async function Navigation() {
           {session?.user?.image ? (
             <Link
               href="/account"
-              className="flex items-center gap-x-4 hover:text-accent-400 transition-colors"
+              className="flex items-center gap-x-3 sm:gap-x-4 hover:text-accent-400 transition-colors"
             >
               <img
-                className=" h-8 rounded-full "
+                className="h-8 w-8 rounded-full object-cover"
                 src={session.user.image}
                 alt=""
               />
@@ -51,12 +50,17 @@ export default async function Navigation() {
         </li>
         <li>
           {session?.user.name ? (
-            <NavLogout/>
+            <NavLogout />
           ) : (
-            <Link href='/login' className="hover:text-accent-400 transition-colors ">Login/Sign Up</Link>
+            <Link
+              href="/login"
+              className="hover:text-accent-400 transition-colors"
+            >
+              Login/Sign Up
+            </Link>
           )}
         </li>
       </ul>
     </nav>
   );
-}
+  }

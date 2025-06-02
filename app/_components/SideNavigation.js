@@ -38,7 +38,7 @@ function SideNavigation() {
               href={link.href}
             >
               {link.icon}
-              <span>{link.name}</span>
+              <span className='hidden md:block'>{link.name}</span>
             </Link>
           </li>
         ))}
