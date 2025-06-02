@@ -4,9 +4,8 @@ import { getBooking, getCabin } from "@/app/_lib/data-service";
 export default async function page({ params }) {
 
     const { numGuests, observations, cabinId } = await getBooking(params.editId);
-      // const { maxCapacity } = await getCabinGVYBHUJN
-      // |>(cabinId);
-
+    const {maxCapacity} = getCabin(cabinId);
+    
   return (
     <div>
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
@@ -54,13 +53,5 @@ export default async function page({ params }) {
         </div>
       </form>
     </div>
-  );
-}
-
-function Button() {
-  return (
-    <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
-      Update reservation
-    </button>
   );
 }

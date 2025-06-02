@@ -18,7 +18,7 @@ export default function page() {
     
             <div className="mt-8">
               <label className="text-xl" htmlFor="">Password: </label>
-              <input required name="password" className="bg-primary-950 outline-none border border-primary-800 rounded-md w-52 px-2 py-2 ml-2" type="text" />
+              <input required name="password" className="bg-primary-950 outline-none border border-primary-800 rounded-md w-52 px-2 py-2 ml-2" type="password" />
             </div>
             <button type="submit" className="px-10 py-2 text-xl bg-primary-600 rounded-md transition hover:bg-primary-800 mt-8">Sign Up</button>
           </form>

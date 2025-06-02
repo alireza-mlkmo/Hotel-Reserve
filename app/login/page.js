@@ -76,7 +76,7 @@ export default function Page() {
             required
             onChange={(e) => setPassword(e.target.value)}
             className="bg-primary-950 outline-none border border-primary-800 rounded-md w-52 px-2 py-2 ml-2"
-            type="text"
+            type="password"
           />
         </div>
         <button
